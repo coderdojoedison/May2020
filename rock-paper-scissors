@@ -1,0 +1,107 @@
+import random 
+import time
+
+
+
+playername = input ("Hi, what is your name: ")
+print ("Welcome " + playername + "!")
+score_player = 0
+score_computer = 0
+
+play = input("Ready to play? (yes/no): ")
+if play == "no":
+  print ("Okay. Have a nice day!")
+  exit()
+elif play != "yes":
+  print ("I didn't understand that :(")
+  exit()
+  
+while play == "yes": 
+
+  choice = input("Choose rock (r), paper (p), or scissors (s): ")
+  
+  if choice == "r":
+    player_choice = "rock"
+
+  elif choice == "p":
+    player_choice = "paper"
+  
+  elif choice == "s":
+    player_choice = "scissors"
+
+  else:
+    print ("I didn't understand that :(")
+    exit()
+  
+  plays = ["rock", "paper", "scissors"]
+
+  comp_choice = random.choice(plays)
+
+  if comp_choice == "rock":
+    print ("Computer chose rock!")
+
+  elif comp_choice == "scissors":
+    print ("Computer chose scissors!")
+
+  elif comp_choice == "paper":
+    print ("Computer chose paper!")
+
+  
+
+  print (player_choice + " versus " + comp_choice)
+
+  if player_choice == comp_choice:
+    print("It's a tie!")
+  elif player_choice == "rock" and comp_choice == "scissors":
+    print(playername + " wins!")
+    score_player = score_player + 1
+  
+  
+  elif player_choice == "rock" and comp_choice == "paper":
+    print("Computer wins!")
+    score_computer = score_computer + 1
+  
+  
+  elif player_choice == "paper" and comp_choice == "scissors":
+    print("Computer wins!")
+    score_computer = score_computer + 1
+  
+  
+  elif player_choice == "paper" and comp_choice == "rock":
+    print(playername + " wins!")
+    score_player = score_player + 1
+  
+  
+  elif player_choice == "scissors" and comp_choice == "rock": 
+    print("Computer wins!")
+    score_computer = score_computer + 1
+  
+  
+  elif player_choice == "scissors" and comp_choice == "paper":
+    print(playername + " wins!")
+    score_player = score_player + 1
+    
+  print ("The score is now: Player: " + str(score_player) + "   Computer: " + str(score_computer))
+  
+  time.sleep(1)
+  
+  play = input("Do you want to play again? (yes/no): ")
+
+  if play == "no":
+    if score_player < score_computer:
+      print ("Computer wins! Have a good day!")
+    elif score_player > score_computer:
+      print (playername + " wins! Have a good day!")
+    elif score_player == score_computer:
+      print("It's a tie!")
+    else:
+      print ("I didn't understand that :(")
+    exit()
+
+  
+  
+  
+
+
+
+  
